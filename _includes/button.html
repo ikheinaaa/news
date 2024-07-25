@@ -1,0 +1,25 @@
+<!-- prettier-ignore -->
+{% if include.responsive %}
+  {% capture responsive %}responsive{% endcapture %}
+{% else %}
+  {% capture responsive %}{% endcapture %}
+{% endif %}
+
+<!-- prettier-ignore -->
+<button
+  class="button body-1-strong rounded-1 {{include.style}} {{include.width}} {{include.align}} {{responsive}}"
+  type="{{include.type | default: 'button'}}"
+
+  {% if include.button_type %}
+    data-button-type="{{include.button_type}}"
+  {% endif %}
+
+  {% if include.name %}
+    id="{{include.name}}"
+    name="{{include.name}}"
+  {% endif %}
+
+  style="padding: 0.3125rem 0.75rem 0.4375rem"
+>
+  {{include.text | default: 'Text'}}
+</button>
